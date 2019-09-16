@@ -1,1 +1,35 @@
-<p>main works!</p>
+
+<!-- <mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Gallery
+    </ng-template>
+    <app-gallery></app-gallery>
+    <p>...</p>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      About
+    </ng-template>
+    <app-about></app-about>
+    <p>...</p>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Contact
+    </ng-template>
+    <app-contact></app-contact>
+    <p>...</p>
+  </mat-tab>
+</mat-tab-group> -->
+<nav mat-tab-nav-bar>
+    <a mat-tab-link
+       *ngFor="let link of navLinks"
+       [routerLink]="link.path"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      {{link.label}}
+    </a>
+  </nav>
+
+  <router-outlet></router-outlet>
