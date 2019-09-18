@@ -1,1 +1,11 @@
-<p>gallery works!</p>
+<button (click)="getGallery()">Get Images</button>
+
+  <mat-grid-list cols="2" rowHeight="1:1" gutterSize="5px">
+    <div *ngFor="let image of data">
+        <mat-grid-tile>
+          <!-- <mat-card> -->
+            <img mat-card-image [src]="image.thumbSqr">
+          <!-- </mat-card> -->
+        </mat-grid-tile>
+    </div>
+  </mat-grid-list>

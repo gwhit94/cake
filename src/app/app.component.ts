@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cake';
+  navLinks: Array<{label: string, path: string}> = [
+    { label: "About", path: "/about" },
+    { label: "Contact", path: "/contact"},
+    { label: "Gallery", path: "/gallery"}
+  ];
 }
