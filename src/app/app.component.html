@@ -1,9 +1,10 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
   <span>{{title}}</span>
   <span class="fill-space"></span>
   <nav mat-tab-nav-bar>
     <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
       [active]="rla.isActive">
+      <i class="material-icons">{{icon}}</i>
       {{link.label}}
     </a>
   </nav>

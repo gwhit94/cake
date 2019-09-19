@@ -8,22 +8,25 @@ import { ImgurService } from '../imgur.service';
 })
 export class GalleryComponent implements OnInit {
   data: any;
+  error: string;
+  loading: boolean;
 
   constructor(private imgur: ImgurService) { }
 
   ngOnInit() {
   }
   getGallery(){
-    this.imgur.getImages()
-      .subscribe(res => { this.data = res; this.assignThumb() });
-  }
-  assignThumb(){
-    this.data.forEach(element => {
-      element["thumbSqr"] = `https://i.imgur.com/${element.id}b.jpg`;
-      element["thumbMed"] = `https://i.imgur.com/${element.id}m.jpg`;
-      element["thumbLrg"] = `https://i.imgur.com/${element.id}l.jpg`;
-    });
-  }
+    this.loading = true;
 
+    this.imgur.getImages().subscribe(
+      res => {
+        this.data = res;
+        this.loading = false;
+      },
+      error => {
+        this.error = error;
+        this.loading = false;
+      });
+  }
 
 }

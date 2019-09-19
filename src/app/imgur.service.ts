@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { map, retry, catchError } from 'rxjs/operators';
+import { Observable, throwError} from 'rxjs';
+import { Image } from './image.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImgurService {
-  url: string;
+  private url: string;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
@@ -16,11 +17,25 @@ export class ImgurService {
   };
   constructor(private http: HttpClient) { }
 
-  getImages(){
+  getImages(): Observable<Image[]>{
     this.url = "https://api.imgur.com/3/album/7WzNkmW/images";
-    return this.http.get(this.url, this.httpOptions)
+    return this.http.get<Image[]>(this.url, this.httpOptions)
       .pipe(
+        retry(1),
+        catchError(this.handleError),
         map(res => res["data"])
       );
+  }
+  handleError(error){
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
   }
 }

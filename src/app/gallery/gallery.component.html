@@ -1,11 +1,13 @@
-<button (click)="getGallery()">Get Images</button>
+<div class="container">
+  <button (click)="getGallery()">
+    {{ loading ? 'Loading . . .' : 'Get Gallery' }}
+  </button>
 
   <mat-grid-list cols="2" rowHeight="1:1" gutterSize="5px">
     <div *ngFor="let image of data">
         <mat-grid-tile>
-          <!-- <mat-card> -->
-            <img mat-card-image [src]="image.thumbSqr">
-          <!-- </mat-card> -->
+            <img class="galleryImage thumbnail" [src]="image.link">
         </mat-grid-tile>
     </div>
   </mat-grid-list>
+</div>

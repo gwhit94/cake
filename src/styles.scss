@@ -4,6 +4,12 @@ body {
   margin: 0;
   padding: 0;
 }
+// .mat-toolbar{
+//   background-color: red;
+// }
 .fill-space{
   flex: 1 1 auto;
+}
+.container{
+  height: calc(100vh - 56px);
 }
