@@ -12,13 +12,13 @@ export class ImgurService {
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': 'Client-ID '
+      'Authorization': 'Client-ID 6eaf9599ae0525c'
     })
   };
   constructor(private http: HttpClient) { }
 
   getImages(): Observable<Image[]>{
-    this.url = "https://api.imgur.com/3/album//images";
+    this.url = "https://api.imgur.com/3/album/P35Jtib/images";
     return this.http.get<Image[]>(this.url, this.httpOptions)
       .pipe(
         retry(1),
