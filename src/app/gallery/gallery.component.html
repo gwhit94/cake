@@ -5,7 +5,7 @@
   <mat-grid-list cols="4" rowHeight="1:1" gutterSize="5px">
     <div *ngFor="let image of data">
         <mat-grid-tile>
-            <img class="galleryImage thumbnail" [src]="image.link" (click)="imageClick()">
+            <img class="galleryImage thumbnail" [src]="image.link">
         </mat-grid-tile>
     </div>
   </mat-grid-list>
