@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ImgurService } from '../imgur.service';
-import { stringify } from 'querystring';
-
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',

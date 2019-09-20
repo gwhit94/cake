@@ -3,6 +3,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #313131;
 }
 .fill-space{
   flex: 1 1 auto;
@@ -15,11 +16,13 @@ body {
   flex-direction: column;
   flex-grow: 1;
   margin: 10px;
+  color: white;
+  background-color: #313131;
 }
 .mat-tab-link{
   font-size: 12px;
   padding: 5px;
-  width: 90px;
+  width: 85px;
 }
 .material-icons {
   padding: 5px;

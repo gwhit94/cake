@@ -9,16 +9,16 @@ import { Image } from './image.model';
 })
 export class ImgurService {
   private url: string;
-  httpOptions = {
+  private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': 'Client-ID'
+      'Authorization': 'Client-ID '
     })
   };
   constructor(private http: HttpClient) { }
 
   getImages(): Observable<Image[]>{
-    this.url = "";
+    this.url = "https://api.imgur.com/3/album//images";
     return this.http.get<Image[]>(this.url, this.httpOptions)
       .pipe(
         retry(1),
