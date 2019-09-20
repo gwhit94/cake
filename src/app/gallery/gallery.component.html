@@ -1,9 +1,8 @@
 <div class="container">
-  <button (click)="getGallery()">
+  <button *ngIf="!loaded" mat-raised-button (click)="getGallery()">
     {{ loading ? 'Loading . . .' : 'Get Gallery' }}
   </button>
-
-  <mat-grid-list cols="2" rowHeight="1:1" gutterSize="5px">
+  <mat-grid-list cols="4" rowHeight="1:1" gutterSize="5px">
     <div *ngFor="let image of data">
         <mat-grid-tile>
             <img class="galleryImage thumbnail" [src]="image.link">

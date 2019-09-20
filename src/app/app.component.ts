@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'cake';
 
-  navLinks: Array<{ icon: string, label: string, path: string}> = [
-    { icon: "photo", label: `Gallery`, path: "/gallery"},
+  navLinks: Array<{ icon: string, label: string, path: string }> = [
+    { icon: "photo", label: `Gallery`, path: "/gallery" },
     { icon: "account_box", label: `About`, path: "/about" },
-    { icon: "email", label: `Contact`, path: "/contact"}
+    { icon: "email", label: `Contact`, path: "/contact" }
   ];
 }

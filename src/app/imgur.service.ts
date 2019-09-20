@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, retry, catchError } from 'rxjs/operators';
 import { Observable, throwError} from 'rxjs';
 import { Image } from './image.model';
@@ -12,13 +12,13 @@ export class ImgurService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': 'Client-ID 6eaf9599ae0525c'
+      'Authorization': 'Client-ID'
     })
   };
   constructor(private http: HttpClient) { }
 
   getImages(): Observable<Image[]>{
-    this.url = "https://api.imgur.com/3/album/7WzNkmW/images";
+    this.url = "";
     return this.http.get<Image[]>(this.url, this.httpOptions)
       .pipe(
         retry(1),
