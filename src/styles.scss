@@ -11,14 +11,45 @@ body {
 .mat-tab-nav-bar.mat-primary .mat-ink-bar {
   background-color: red;
 }
-.container{
+app-gallery{
+  height: inherit;
+}
+.scroll-viewport{
+  height: inherit;
+  width: calc(100vw - 20px);
   display: flex;
+  align-items: center;
+}
+.desc-card{
+  text-align: center;
+  margin: 5px;
+  width: inherit;
+}
+.cdk-virtual-scroll-content-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  width: inherit;
+}
+.scroll-item{
+  height: 250px;
+  width: inherit;
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+
+}
+.container{
+  height: calc(100vh - 76px);
+  display: flex;
+  align-items: stretch;
   flex-direction: column;
   flex-grow: 1;
   margin: 10px;
   color: white;
   background-color: #313131;
 }
+
+
 .mat-tab-link{
   font-size: 12px;
   padding: 5px;
@@ -28,8 +59,8 @@ body {
   padding: 5px;
 }
 .thumbnail {
-  height: 175px;
-  width: 175px;
+  height: inherit;
+  // width: 175px;
 }
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }

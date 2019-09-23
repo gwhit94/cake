@@ -1,12 +1,19 @@
-<div class="container" color="secondary">
-  <button *ngIf="!loaded" mat-raised-button (click)="getGallery()">
-    {{ loading ? 'Loading . . .' : 'Get Gallery' }}
-  </button>
-  <mat-grid-list cols="4" rowHeight="1:1" gutterSize="5px">
-    <div *ngFor="let image of data">
-        <mat-grid-tile>
-            <img class="galleryImage thumbnail" [src]="image.link">
-        </mat-grid-tile>
-    </div>
-  </mat-grid-list>
-</div>
+<cdk-virtual-scroll-viewport itemSize="250" class="scroll-viewport">
+  <mat-card class="desc-card">Click on an image to open it full size!</mat-card>
+  <div *cdkVirtualFor="let image of data; templateCacheSize: 0" class="scroll-item">
+    <img class="galleryImage thumbnail" [src]="image.link" (click)="openLink(image.link)">
+  </div>
+</cdk-virtual-scroll-viewport>
+  <!-- below is previous gallery html -->
+<!-- <button *ngIf="!loaded" mat-raised-button (click)="getGallery()">
+  {{ loading ? 'Loading . . .' : 'Get Gallery' }}
+</button>
+<mat-grid-list cols="4" rowHeight="1:1" gutterSize="5px">
+  <div *ngFor="let image of data">
+      <mat-grid-tile>
+          <img class="galleryImage thumbnail" [src]="image.link">
+      </mat-grid-tile>
+  </div>
+</mat-grid-list> -->
+
+

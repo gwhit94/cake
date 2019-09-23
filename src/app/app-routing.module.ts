@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'gallery', component: GalleryComponent},
-  { path: '**', redirectTo: '/', pathMatch: 'full'},
+  { path: '', redirectTo: '/gallery', pathMatch: 'full'},
+  { path: '**', redirectTo: '/gallery'}
 ];
 
 @NgModule({
